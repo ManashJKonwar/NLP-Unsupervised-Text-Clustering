@@ -8,8 +8,18 @@ __email__ = "rickykonwar@gmail.com"
 __status__ = "Development"
 
 class Clustering:
-    def __init__():
-        pass
+    def __init__(self, **kwargs):
+        self._cluster_algo = kwargs.get('cluster_algo')
+        self._cluster_data = kwargs.get('cluster_data')
+        self._cluster_instance = self._set_cluster()   
     
-    def run_clustering(self):
+    def _set_cluster():
+        if self._cluster_algo.__eq__('HDBSCAN'):
+            return self.HDBSCAN(self)
+            
+class HDBSCAN:
+    def __init__(self, master_cluster):
+        self._master_cluster = master_cluster 
+        
+    def run_cluster(self):
         pass
