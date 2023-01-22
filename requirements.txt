@@ -8,3 +8,11 @@ requests==2.28.2  # https://pypi.org/project/requests/2.28.2/  # Python HTTP for
 textblob==0.17.1  # https://pypi.org/project/textblob/0.17.1/  # Simple, Pythonic text processing. Sentiment analysis, part-of-speech tagging, noun phrase parsing, and more.
 nltk==3.8.1  # https://pypi.org/project/nltk/3.8.1/  # Natural Language Toolkit
 gensim==4.3.0  # https://pypi.org/project/gensim/4.3.0/  # Python framework for fast Vector Space Modelling
+
+# Deep Learning Framework
+# ------------------------------------------------------------------------------
+torch==1.13.1  # https://pypi.org/project/torch/1.13.1/  # Tensors and Dynamic neural networks in Python with strong GPU acceleration
+
+# Vectorization
+# ------------------------------------------------------------------------------
+sentence-transformers==2.2.2  # https://pypi.org/project/sentence-transformers/  # Multilingual text embeddings
