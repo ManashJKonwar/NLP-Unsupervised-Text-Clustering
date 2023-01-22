@@ -11,11 +11,12 @@ class Clustering:
     def __init__(self, **kwargs):
         self._cluster_algo = kwargs.get('cluster_algo')
         self._cluster_data = kwargs.get('cluster_data')
+        self._text_column = kwargs.get('text_column')
         self._cluster_instance = self._set_cluster()   
     
-    def _set_cluster():
+    def _set_cluster(self):
         if self._cluster_algo.__eq__('HDBSCAN'):
-            return self.HDBSCAN(self)
+            return HDBSCAN(self)
             
 class HDBSCAN:
     def __init__(self, master_cluster):

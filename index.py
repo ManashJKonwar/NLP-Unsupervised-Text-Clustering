@@ -25,5 +25,6 @@ if __name__ == '__main__':
     clustering_instance = Clustering(
                             cluster_algo='HDBSCAN',
                             cluster_data=cluster_data,
-                            text_column=""
+                            text_column="reviewText"
                         )
+    clustering_instance._cluster_instance.run_cluster()
