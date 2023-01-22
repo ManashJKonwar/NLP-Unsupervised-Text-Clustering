@@ -2,3 +2,9 @@
 # ------------------------------------------------------------------------------
 pandas==1.5.3  # https://pypi.org/project/pandas/1.5.3/  # Powerful data structures for data analysis, time series, and statistics
 requests==2.28.2  # https://pypi.org/project/requests/2.28.2/  # Python HTTP for Humans.
+
+# Text Preprocessing
+# ------------------------------------------------------------------------------
+textblob==0.17.1  # https://pypi.org/project/textblob/0.17.1/  # Simple, Pythonic text processing. Sentiment analysis, part-of-speech tagging, noun phrase parsing, and more.
+nltk==3.8.1  # https://pypi.org/project/nltk/3.8.1/  # Natural Language Toolkit
+gensim==4.3.0  # https://pypi.org/project/gensim/4.3.0/  # Python framework for fast Vector Space Modelling
