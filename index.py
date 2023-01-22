@@ -13,6 +13,7 @@ tqdm.pandas()
 
 from src.clustering import *
 from src.text_preprocesser import *
+from src.text_vectorizer import *
 from utility.data_collection import *
 
 if __name__ == '__main__':
@@ -20,6 +21,7 @@ if __name__ == '__main__':
     cluster_data = None
     text_column = "reviewText"
     sample_frac = 0.1
+    model_embedding = "sentence-transformers/all-MiniLM-L6-v2"
     
     if not os.path.exists(os.path.join("input", category.lower() + ".csv")):
         cluster_data = getDF(category=category)
@@ -35,6 +37,10 @@ if __name__ == '__main__':
     
     # Preprocessing Pipeline
     cluster_data["preprocessed_text"] = cluster_data[text_column].progress_apply(lambda x: preprocess_text(x))
+    
+    # Vectorization Pipeline
+    x_sbert = encoded_text(data=cluster_data, col_name="preprocessed_text", model_name=model_embedding)
+    cluster_data["vectorized_text"] = x_sbert.tolist()
     
     # Clustering Pipeline
     clustering_instance = Clustering(
