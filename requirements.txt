@@ -15,4 +15,5 @@ torch==1.13.1  # https://pypi.org/project/torch/1.13.1/  # Tensors and Dynamic n
 
 # Vectorization
 # ------------------------------------------------------------------------------
+umap-learn==0.5.3  # https://pypi.org/project/umap-learn/0.5.3/  # Uniform Manifold Approximation and Projection
 sentence-transformers==2.2.2  # https://pypi.org/project/sentence-transformers/  # Multilingual text embeddings
