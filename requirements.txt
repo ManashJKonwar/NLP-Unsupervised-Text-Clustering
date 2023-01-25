@@ -17,3 +17,7 @@ torch==1.13.1  # https://pypi.org/project/torch/1.13.1/  # Tensors and Dynamic n
 # ------------------------------------------------------------------------------
 umap-learn==0.5.3  # https://pypi.org/project/umap-learn/0.5.3/  # Uniform Manifold Approximation and Projection
 sentence-transformers==2.2.2  # https://pypi.org/project/sentence-transformers/  # Multilingual text embeddings
+
+# Clustering
+# ------------------------------------------------------------------------------
+hdbscan==0.8.29  # https://pypi.org/project/hdbscan/0.8.29/  # Clustering based on density with variable density clusters
