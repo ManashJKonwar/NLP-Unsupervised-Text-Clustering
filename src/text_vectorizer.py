@@ -9,7 +9,12 @@ __status__ = "Development"
 
 from sentence_transformers import SentenceTransformer
 
-def encoded_text(data, col_name, model_name):
+def encoded_text(**kwargs):
+    data = kwargs.get('data')
+    col_name = kwargs.get('col_name')
+    model_name = kwargs.get('model_name')
+    
     sbert_model = SentenceTransformer(model_name)
     x_sbert = sbert_model.encode(data[col_name].tolist(), show_progress_bar=True)
+    
     return x_sbert
