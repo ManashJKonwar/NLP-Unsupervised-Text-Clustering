@@ -21,6 +21,7 @@ if __name__ == '__main__':
     category = "reviews_Cell_Phones_and_Accessories_5"
     cluster_data = None
     text_column = "reviewText"
+    vectorized_column = "reduced_vectorized_text"
     sample_frac = 0.01
     model_embedding = "sentence-transformers/all-MiniLM-L6-v2"
     
@@ -48,7 +49,7 @@ if __name__ == '__main__':
     cluster_data["vectorized_text"] = x_sbert.tolist()
     
     # Dimensionality Reduction Pipeline
-    cluster_data["reduced_vectorized_text"] = reduce_dimensions(
+    cluster_data[vectorized_column] = reduce_dimensions(
                                                     n_neighbors=3,
                                                     n_components=9,
                                                     text_embeddings=x_sbert
@@ -58,6 +59,7 @@ if __name__ == '__main__':
     clustering_instance = Clustering(
                             cluster_algo='HDBSCAN',
                             cluster_data=cluster_data,
-                            text_column=text_column
+                            vectorized_column=vectorized_column
                         )
-    clustering_instance._cluster_instance.run_cluster()
+    cluster_output = clustering_instance._cluster_instance.run_cluster()    
+    print(set(cluster_output.labels_))
