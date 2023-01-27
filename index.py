@@ -10,10 +10,12 @@ __status__ = "Development"
 import pandas as pd
 from tqdm import tqdm 
 tqdm.pandas()
+from hyperopt import hp
 
 from src.clustering import *
 from src.text_preprocesser import *
 from src.text_vectorizer import *
+from src.cluster_optimization import *
 from src.text_dimension_reduction import *
 from utility.data_collection import *
 
@@ -48,6 +50,25 @@ if __name__ == '__main__':
                 )
     cluster_data["vectorized_text"] = x_sbert.tolist()
     
+    # Optimization Pipeline
+    hspace = {
+        "n_neighbors": hp.choice('n_neighbors', range(3,16)),
+        "n_components": hp.choice('n_components', range(3,16)),
+        "min_cluster_size": hp.choice('min_cluster_size', range(10,30)),
+        "random_state": 42
+    }
+    label_lower = 30
+    label_upper = 100
+    max_evals = 50
+    
+    best_params_use, best_clusters_use, best_embeddings_use, trials_use = bayesian_search(
+                                                                                embeddings=x_sbert, 
+                                                                                space=hspace, 
+                                                                                label_lower=label_lower, 
+                                                                                label_upper=label_upper, 
+                                                                                max_evals=max_evals
+                                                                            )
+    '''
     # Dimensionality Reduction Pipeline
     cluster_data[vectorized_column] = reduce_dimensions(
                                                     n_neighbors=3,
@@ -63,3 +84,4 @@ if __name__ == '__main__':
                         )
     cluster_output = clustering_instance._cluster_instance.run_cluster()    
     print(set(cluster_output.labels_))
+    '''
