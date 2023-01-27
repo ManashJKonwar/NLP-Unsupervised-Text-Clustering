@@ -21,3 +21,7 @@ sentence-transformers==2.2.2  # https://pypi.org/project/sentence-transformers/ 
 # Clustering
 # ------------------------------------------------------------------------------
 hdbscan==0.8.29  # https://pypi.org/project/hdbscan/0.8.29/  # Clustering based on density with variable density clusters
+
+# Hyperparameter Tuning
+# ------------------------------------------------------------------------------
+hyperopt==0.2.7  # https://pypi.org/project/hyperopt/0.2.7/  # Distributed Asynchronous Hyperparameter Optimization
