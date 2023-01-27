@@ -12,7 +12,7 @@ from tqdm import tqdm
 tqdm.pandas()
 from hyperopt import hp
 
-from src.clustering import *
+from src.cluster_generator import *
 from src.text_preprocesser import *
 from src.text_vectorizer import *
 from src.cluster_optimization import *
