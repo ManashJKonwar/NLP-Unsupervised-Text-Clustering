@@ -68,11 +68,11 @@ if __name__ == '__main__':
                                                                                 label_upper=label_upper, 
                                                                                 max_evals=max_evals
                                                                             )
-    '''
+    
     # Dimensionality Reduction Pipeline
     cluster_data[vectorized_column] = reduce_dimensions(
-                                                    n_neighbors=3,
-                                                    n_components=9,
+                                                    n_neighbors=best_params_use['n_neighbors'],
+                                                    n_components=best_params_use['n_components'],
                                                     text_embeddings=x_sbert
                                                 ).tolist()
     
@@ -84,4 +84,3 @@ if __name__ == '__main__':
                         )
     cluster_output = clustering_instance._cluster_instance.run_cluster()    
     print(set(cluster_output.labels_))
-    '''
